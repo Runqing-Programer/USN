@@ -50,12 +50,21 @@ const UserProfile = ({ setCircle, setSnackbar }) => {
     if (accessToken) {
       const fetchData = async () => {
         try {
+<<<<<<< Updated upstream
           const success_user_prof = await axios.get(`/users/${userID}`, {
+=======
+          const success_user_prof_obj = await axios.get(`/users/${userID}`, {
+>>>>>>> Stashed changes
             headers: {
               Authorization: `Bearer ${token}`,
             },
           })
+<<<<<<< Updated upstream
           console.log(success_user_prof)
+=======
+          console.log(success_user_prof_obj)
+
+>>>>>>> Stashed changes
           // Fetch data - Need API route first
           console.log('UserProfile Successful')
         } catch (error) {
