@@ -10,11 +10,11 @@
 .sideBar{
 
     overflow-wrap: break-word;
-    float: left;
     padding-top: 10px;
     color: white;
-    text-align: center;
-    height: calc(100vh - 64px);
+    text-align: left;
+    min-height: calc(100vh - 64px);
+    height: auto;
     background-color: $secondary;
 
     #userIcon{
@@ -38,6 +38,7 @@
     
 .sideBar{
     text-align:center;
+    min-height: 0;
     height: auto;
 
     .userInfo{

@@ -15,7 +15,7 @@ import Select from '@mui/material/Select';
 import axios from 'axios';
 
 
-const FormDialog = () => {
+const FormDialog = ({handleSubmit}) => {
     //parsing value
 
     const first_name = useRef();
@@ -40,9 +40,7 @@ const FormDialog = () => {
     const handleClose = () => {
       setOpen(false);
     };
-    const handleSubmit = () => {
-        axios.put("")
-      };
+    
     
     //----------------------------- UNI SELECT -----------------------------------------
     // const ITEM_HEIGHT = 48;

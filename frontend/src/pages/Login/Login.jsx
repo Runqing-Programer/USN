@@ -30,10 +30,13 @@ const Login = ({ setCircle, setSnackbar }) => {
       setCircle(true)
       try {
         const success = await axios.post('/auth/login', user)
-        console.log(success)
+        console.log('blabla',success)
         const userID = success.data.user._id
         localStorage.setItem('refreshToken', success.data.refreshToken)
         localStorage.setItem('accessToken', success.data.accessToken)
+        localStorage.setItem('userName', success.data.user.username)
+        localStorage.setItem('userID', success.data.user._id)
+        
         setCircle(false)
         setSnackbar({
           show: true,
