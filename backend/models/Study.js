@@ -1,20 +1,15 @@
 const mongoose = require("mongoose");
 
-const UniSchema = new mongoose.Schema({
-  uniName:{
-    type: String,
-    require: true,
-      unique: true,
-  },
-  uniDisplayName:{
+const StudySchema = new mongoose.Schema({
+  studyName:{
     type: String,
     require: true,
     unique: true,
   },
-  email: {
+  studyDisplayName:{
     type: String,
-    max: 255,
-      unique: true,
+    require: true,
+    unique: true,
   },
   profilePicture: {
     type: String,
@@ -24,23 +19,22 @@ const UniSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  followers: {
-    type: Array,
-    default: [],
-  },
-  followings: {
-    type: Array,
-    default: [],
-  },
   desc: {
     type: String,
     max: 255,
   },
-  uniAdmin: {
+  studyAdmin: {
     type: Array,
     default: [],
+    required: true,
+      unique: true,
+  },
+  studyMembers: {
+    type: Array,
+    default: [],
+        unique: true,
   },
 },
 { timestamps: true });
 
-module.exports = mongoose.model("Uni", UniSchema);
+module.exports = mongoose.model("Study", StudySchema);

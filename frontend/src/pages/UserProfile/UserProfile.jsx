@@ -11,9 +11,26 @@ import SideBar from '../../components/SideBar/SideBar'
 
 import Grid from '@mui/material/Grid';
 import PostingBox from '../../components/PostingBox/PostingBox.jsx'
+import Post from '../../components/Post/Post.jsx'
+import './UserProfile.scss'
+import DefaultIcon from '../../images/128pxUser.png'
 
 import "./UserProfile.scss"
 
+const posts = [
+  {
+    _id: 1,
+    text: 'This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. ',
+    shares: 10,
+    likes: 52,
+  },
+  {
+    _id: 2,
+    text: 'This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. This is something related to user. ',
+    shares: 10,
+    likes: 52,
+  },
+]
 
 const UserProfile = ({ setCircle, setSnackbar }) => {
 
@@ -42,33 +59,28 @@ const UserProfile = ({ setCircle, setSnackbar }) => {
 
 
   useEffect(() => {
-
-    setuserName(localStorage.getItem('userName'))
-    
     const token = localStorage.getItem('accessToken')
     setCircle(true)
     if (accessToken) {
       const fetchData = async () => {
         try {
-<<<<<<< Updated upstream
-          const success_user_prof = await axios.get(`/users/${userID}`, {
-=======
-          const success_user_prof_obj = await axios.get(`/users/${userID}`, {
->>>>>>> Stashed changes
+
+
+
+          const success = await axios.get(`/users/6124bee645e6d377f039326f`, {
+
             headers: {
               Authorization: `Bearer ${token}`,
             },
           })
-<<<<<<< Updated upstream
-          console.log(success_user_prof)
-=======
+
           console.log(success_user_prof_obj)
 
->>>>>>> Stashed changes
+
           // Fetch data - Need API route first
           console.log('UserProfile Successful')
         } catch (error) {
-          console.log('UserProfile Failed')
+          // console.log(error)
         }
       }
       fetchData()
@@ -89,60 +101,19 @@ const UserProfile = ({ setCircle, setSnackbar }) => {
         </Grid>
         
         <Grid item md={9} sm = {8} xs={12}>
-          <div className="postsContainer">
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/><PostingBox/>
-            <PostingBox/>
-            <PostingBox/>
-            
+          
+          <div className='postingContainer'>
+            <PostingBox />
+          </div>
+          <div className='postsContainer'>
+            <Post posts={posts} />
           </div>
         </Grid>
-        
       </Grid>
-    </div>
-  )
+    </div>       
+  ,[history, setCircle, accessToken])
+
+  
 }
 
 export default UserProfile

@@ -8,6 +8,14 @@ const UserSchema = new mongoose.Schema({
     max: 20,
     unique: true,
   },
+  fName: {
+    type: String,
+    default: "",
+  },
+  lName: {
+    type: String,
+    default: "",
+  },
   isAdmin:{
     type: Boolean,
     default: false,
@@ -41,19 +49,27 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: Array,
-    default: [],
+    default: ["general"],
   },
   desc: {
     type: String,
-    max: 50,
+    default: "",
   },
   currentCity: {
     type: String,
-    max: 50,
+    default: "",
   },
   isFrom: {
     type: String,
-    max: 50,
+    default: "",
+  },
+  placeOfStudy: {
+    type: String,
+    default: "",
+  },
+  classOf: {
+    type: String,
+    default: "",
   },
 },
 { timestamps: true });
